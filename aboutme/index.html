@@ -16,9 +16,14 @@
             <a href="/" class="name">Elliott Brown</a>
             <div class="title">Game Designer</div>
         </div>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/aboutme/" class="active">About Me</a>
+        <nav class="main-nav">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinksList">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinksList">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/aboutme/" class="nav-link active">About Me</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -91,6 +96,6 @@
             <div class="footer-copyright">© All rights reserved</div>
         </div>
     </footer>
+    <script src="../../script.js"></script>
 </body>
-
 </html>

@@ -70,7 +70,7 @@
 html {
     font-size: 62.5%; /* 1rem = 10px */
     scroll-behavior: smooth;
-    overflow-y: scroll; /* Add this line to prevent layout shift */
+    overflow-y: scroll; /* Prevents layout shift from scrollbar appearing/disappearing */
 }
 
 body {
@@ -87,7 +87,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: var(--space-huge) 20%; /* Consider fixed padding or max-width container */
+    padding: var(--space-huge) 20%;
     background-color: var(--color-background-dark);
     box-shadow: var(--header-shadow);
     display: flex;
@@ -121,29 +121,13 @@ header {
     pointer-events: none;
 }
 
-nav a {
-    font-size: var(--fs-sm);
-    color: var(--color-text-light);
-    margin-left: var(--space-xxxxxxl);
-    font-weight: var(--font-weight-semibold);
-    transition: color var(--transition-fast), border-bottom-color var(--transition-fast);
-    border-bottom: 3px solid transparent;
-    padding-bottom: var(--space-xs);
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--color-primary);
-    border-bottom-color: var(--color-primary);
-}
-
 /* Projects Section */
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-xl);
     padding: var(--space-xxl);
-    max-width: 3000px; /* This is very large, ensure it's intended */
+    max-width: 3000px;
     margin: 0 auto;
 }
 
@@ -183,7 +167,7 @@ nav a.active {
     color: var(--color-text-light);
     display: flex;
     align-items: flex-end;
-    justify-content: left; /* text-align: left is on the text itself */
+    justify-content: left;
     font-size: var(--fs-xl);
     font-weight: var(--font-weight-bold);
     text-align: left;
@@ -209,7 +193,7 @@ nav a.active {
 .profile-pic {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Assuming it's a circular profile picture */
+    border-radius: 50%;
     object-fit: cover;
     margin-bottom: var(--space-md);
 }
@@ -237,7 +221,7 @@ nav a.active {
 .profile-email {
     font-size: var(--fs-sm);
     color: var(--color-primary);
-    word-break: break-all; /* Prevents overflow on small screens */
+    word-break: break-all;
 }
 
 .profile-email:hover {
@@ -249,23 +233,22 @@ nav a.active {
     background-color: var(--color-background-medium);
 }
 
-/* Common styles for resume text sections */
 .resume-section {
     margin: var(--space-huge) auto;
-    max-width: 80rem; /* Max width for readability */
-    width: 90%; /* Responsive width */
+    max-width: 80rem;
+    width: 90%;
     color: var(--color-text-light);
 }
 
 .resume-section h2 {
-    font-size: var(--fs-xl); /* Or another suitable size */
+    font-size: var(--fs-xl);
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--space-lg);
-    color: var(--color-text-light); /* Explicitly set if different from section text */
+    color: var(--color-text-light);
 }
 
 .resume-section p, .resume-section .skills {
-    font-size: var(--fs-md); /* Or var(--fs-base) */
+    font-size: var(--fs-md);
     font-weight: var(--font-weight-regular);
     line-height: 1.6;
 }
@@ -295,7 +278,7 @@ nav a.active {
 
 .resume-download {
     text-align: center;
-    margin-bottom: var(--space-xxxxl); /* Add some space before the first divider */
+    margin-bottom: var(--space-xxxxl);
 }
 
 .resume-button {
@@ -317,7 +300,7 @@ nav a.active {
 /* Divider */
 .divider {
     width: 35%;
-    min-width: 200px; /* Ensure it's visible on small screens */
+    min-width: 200px;
     height: 1px;
     background-color: var(--color-divider);
     margin: var(--space-xxxxl) auto;
@@ -334,25 +317,25 @@ nav a.active {
 }
 
 .footer-content {
-    display: flex;           /* Default for small screens: flex column */
+    display: flex;
     flex-direction: column;
-    align-items: center;     /* Center items when stacked */
-    gap: var(--space-lg);    /* Gap between stacked items */
+    align-items: center;
+    gap: var(--space-lg);
 }
 
 .footer-links-left,
 .footer-link-center {
     display: flex;
-    flex-wrap: wrap;         /* Allow links within these groups to wrap */
-    justify-content: center; /* Center their content by default (for stacking) */
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    gap: var(--space-xl);    /* Gap between individual links if they are side-by-side in their group */
+    gap: var(--space-xl);
 }
 
 .footer-copyright {
     font-size: var(--fs-xs);
     color: var(--color-text-medium);
-    text-align: center;     /* Center text for stacked layout */
+    text-align: center;
 }
 
 .footer-link {
@@ -375,27 +358,82 @@ nav a.active {
 @media (min-width: 768px) {
     .footer-content {
         display: grid;
-        grid-template-columns: 1fr auto 1fr; /* Left col, Center col (auto-width), Right col */
-        align-items: center;                 /* Vertically align items in their grid cells */
-        gap: var(--space-xl);                /* Gap between the grid columns */
-        width: 100%;                         /* Ensure footer content spans full width */
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: var(--space-xl);
+        width: 100%;
     }
 
     .footer-links-left {
-        justify-self: start;                 /* Align this entire group to the start of its grid cell */
-        justify-content: flex-start;         /* Align links within this group to their left */
+        justify-self: start;
+        justify-content: flex-start;
     }
 
     .footer-link-center {
-        justify-self: center;                /* Align this entire group to the center of its grid cell */
-        /* Its internal content (the contact link) is already centered by its own flex properties */
+        justify-self: center;
     }
 
     .footer-copyright {
-        justify-self: end;                   /* Align this entire group to the end of its grid cell */
-        text-align: right;                   /* Align text within the copyright to the right */
+        justify-self: end;
+        text-align: right;
     }
 }
+
+/* ========================================= */
+/* == Responsive Navigation Menu Styles   == */
+/* ========================================= */
+
+.main-nav {
+    position: relative;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: var(--fs-lg);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: none;
+    z-index: 1100;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Set to flex by default for desktop */
+}
+
+.nav-links .nav-link {
+    /* Base styles for all links, desktop first */
+    font-family: var(--font-family-default); /* Explicitly set font to fix inheritance issue */
+    display: inline-block;
+    color: var(--color-text-light);
+    font-size: var(--fs-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    background-color: transparent;
+    padding: 0;
+    padding-bottom: var(--space-xs);
+    border-width: 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-width: 3px;
+    transition: color var(--transition-fast), border-bottom-color var(--transition-fast);
+}
+
+.nav-links li:not(:first-child) {
+     margin-left: var(--space-xxxxxxl);
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link.active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+    background-color: transparent;
+}
+
 
 /* ================================== */
 /* == Project Detail Page Styles   == */
@@ -403,13 +441,13 @@ nav a.active {
 
 .project-detail-page {
     max-width: 1100px;
-    margin: 0 auto; /* Center the content */
+    margin: 0 auto;
     padding: var(--space-huge) var(--space-xl);
 }
 
 .back-to-gallery {
     display: flex;
-    justify-content: flex-start; /* Align link to the left */
+    justify-content: flex-start;
     margin-bottom: var(--space-xl);
 }
 
@@ -445,7 +483,7 @@ nav a.active {
 
 .project-info {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Make the left column twice as wide as the right */
+    grid-template-columns: 2fr 1fr;
     gap: var(--space-huge);
     margin-bottom: var(--space-huge);
     align-items: start;
@@ -483,15 +521,13 @@ nav a.active {
 }
 
 .project-meta .skills {
-    justify-content: flex-start; /* Align skill tags to the left */
+    justify-content: flex-start;
 }
 
 .project-actions {
     display: flex;
     gap: var(--space-lg);
 }
-
-/* Re-use the .resume-button style or create a new .project-button if you want different styling */
 
 .gallery-grid {
     display: grid;
@@ -510,9 +546,112 @@ nav a.active {
     box-shadow: var(--shadow-default);
 }
 
-/* Make project page responsive for mobile */
-@media (max-width: 768px) {
+
+/* ========================================= */
+/* == Mobile & Responsive Styles        == */
+/* ========================================= */
+@media (max-width: 767px) {
+    /* --- General Mobile Spacing & Typography --- */
+    header {
+        padding: var(--space-xl) 5%; /* Reduce header padding */
+    }
+
+    .name {
+        font-size: 3.2rem; /* Reduce header name size */
+    }
+
+    .title {
+        font-size: 2rem; /* Reduce header title size */
+    }
+
+    .projects {
+        padding: var(--space-lg); /* Reduce padding around project grid */
+    }
+    
+    .resume-about {
+        margin-top: var(--space-xxl);
+        margin-bottom: var(--space-xxl);
+    }
+    
+    .resume-section {
+        margin: var(--space-xxxl) auto;
+    }
+
+    .footer {
+        padding: var(--space-xxxl) 5%;
+    }
+
+    /* --- Navigation Menu --- */
+    .nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+    
+    .main-nav .nav-links {
+        display: none; /* Hide link list by default */
+        position: absolute;
+        flex-direction: column; /* Stack links vertically */
+        top: calc(100% + 10px);
+        right: 0;
+        background-color: var(--color-background-dark);
+        border: 1px solid var(--color-divider);
+        border-radius: var(--border-radius-sm);
+        box-shadow: var(--shadow-default);
+        min-width: 200px;
+        z-index: 1090;
+    }
+
+    .main-nav .nav-links.nav-open {
+        display: flex; /* Show the dropdown menu */
+    }
+
+    .main-nav .nav-links li {
+        margin-left: 0; /* Remove desktop margin */
+        width: 100%;
+    }
+
+    .main-nav .nav-links .nav-link {
+        display: block;
+        width: 100%;
+        padding: var(--space-md) var(--space-lg);
+        text-align: left;
+        border-bottom: 1px solid var(--color-divider);
+    }
+    
+    .main-nav .nav-links li:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .main-nav .nav-links .nav-link:hover,
+    .main-nav .nav-links .nav-link.active {
+        background-color: var(--color-background-medium);
+        border-bottom-color: var(--color-divider); /* Maintain border color on hover/active */
+    }
+
+
+    /* --- Project Detail Page --- */
+    .project-detail-page {
+        padding: var(--space-xxl) var(--space-lg);
+    }
+
+    .project-detail-page h1 {
+        font-size: var(--fs-xl);
+    }
+
     .project-info {
         grid-template-columns: 1fr; /* Stack columns on mobile */
+        gap: var(--space-xxxl);
+    }
+
+    .project-summary h2, .project-gallery h2 {
+        font-size: 2.6rem; /* Slightly smaller section titles */
+    }
+
+    .project-actions {
+        flex-direction: column; /* Stack action buttons */
+        align-items: stretch; /* Make buttons full width of container */
+    }
+
+    .project-actions .resume-button {
+        text-align: center; /* Center text in buttons */
     }
 }
