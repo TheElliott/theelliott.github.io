@@ -80,6 +80,13 @@ body {
     color: var(--color-text-light);
     overflow-x: hidden;
     font-size: var(--fs-base); /* Default font size for body */
+    display: flex; /* ADDED: Use flexbox for the body */
+    flex-direction: column; /* ADDED: Stack children vertically */
+}
+
+/* ADDED: This makes the main content area grow to fill available space */
+main {
+    flex: 1 0 auto; /* Grow to fill space, don't shrink, basis is auto */
 }
 
 /* Header */
@@ -539,7 +546,7 @@ header {
     width: 100%;
     border-radius: var(--border-radius-sm);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Add this to indicate images are clickable */
+    cursor: pointer;
 }
 
 .gallery-grid img:hover {
